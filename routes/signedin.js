@@ -58,8 +58,7 @@ router.get("/KyleAdmin", (req, res) => {
 router.get("/:username", (req, res, next) => {
   let username = req.params.username;
 
-  if (req.session.user) {
-    console.log(req.sessionID);
+  if (req.session.user.username == username) {
     main();
   } else {
     res.render("404");
@@ -93,7 +92,7 @@ router.post("/:username", (req, res) => {
 
 router.get("/:username/cart", (req, res) => {
   let username = req.params.username;
-  if (req.session.user) {
+  if (req.session.user.username == username) {
     main();
   } else {
     res.render("404");
@@ -111,7 +110,7 @@ router.get("/:username/cart", (req, res) => {
 
 router.post("/:username/cart", (req, res) => {
   let username = req.params.username;
-  if (req.session.user) {
+  if (req.session.user.username == username) {
     main();
   } else {
     res.render("404");
@@ -148,7 +147,7 @@ router.post("/:username/cart", (req, res) => {
 });
 router.post("/:username/:prodid", (req, res) => {
   let username = req.params.username;
-  if (req.session.user) {
+  if (req.session.user.username == username) {
     main();
   } else {
     res.render("404");
@@ -173,7 +172,7 @@ router.post("/:username/:prodid", (req, res) => {
 
 router.delete("/:username/cart", (req, res) => {
   let username = req.params.username;
-  if (req.session.user) {
+  if (req.session.user.username == username) {
     main();
   } else {
     res.render("404");
@@ -193,7 +192,7 @@ router.get("/:username/:prodid", (req, res, next) => {
   let username = req.params.username;
   let prodid = req.params.prodid;
 
-  if (req.session.user) {
+  if (req.session.user.username == usernamegit) {
     console.log(req.sessionID);
     main();
   } else {
